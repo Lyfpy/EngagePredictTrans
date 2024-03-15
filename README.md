@@ -1,4 +1,4 @@
-# Student Engagement Prediction
+# Predicting Student Engagement through Body Signal Analysis with Self-Attention Mechanisms
 
 A project focusing on predicting student engagement through the analysis of body signals, employing self-attention mechanisms to enhance model performance.
 
