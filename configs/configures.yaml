@@ -1,0 +1,43 @@
+data: 
+  root: "/raid/BN/engagementwild2020/abhinavdhall_EngagementWild_2020/OpenFace_features/"
+  l_dir: "/mnt/COMP8755_/OpenFace_features/Engagement_Labels_Engagement.csv"
+  dir_root: '/mnt/COMP8755_/data-processed/'
+  level : [0., 0.33, 0.66, 1.]
+  frame_size : 100 
+  step_size : 1.2
+  gaze_range : [4,10]  
+  head_range : [10,13]  
+  rot_range : [13,19]   
+  aus_range : [-35,-18] 
+  attributes : [ "gaze_seg", "aus_seg"]   
+  #  eye gaze: "gaze_seg" head pose: "head_seg" "rot_seg", aus: "aus_seg"
+  functions : ["length","maximum","variance", "minimum"]
+  batch_size : 16
+  n_samples : 3
+checkpoint:
+  dirpath: "/mnt/COMP8755_/checkpoints"
+
+model:
+  transformer:
+    n_hidden : 1024 
+    n_head : 4
+    n_layers : 2 
+    n_feed_forward : 128
+    n_models : 4
+  mlp:
+    h1 : 64
+    h2 : 32
+    out : 1
+  train:
+    dropout : 0.1
+    n_epochs : 600
+    lr : 0.00005
+    triplet_margin : 0.4 
+    threshold : 2.5
+    gamma: 1. # 2.6 # 1.6
+    beta: 1.
+  
+  seed: 214 # 3407
+
+
+
